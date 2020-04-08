@@ -16,18 +16,18 @@ class Transfer
     end
   end
 
-  def execute_transaction(transaction)
-    if transaction.valid?
-      @receiver.balance += @amount
-      @sender.balance -= @amount
+  def execute_transaction
+    if self.valid?
+      self.receiver.balance += self.amount
+      self.sender.balance -= self.amount
     end
-    @status = "executed"
+    self.status = "executed"
   end
 
-  def reverse_transfer(transaction)
-    if transaction.status == "executed"
-      @receiver.balance -= @amount
-      @sender.balance += @amount
+  def reverse_transfer
+    if self.status == "executed"
+      self.receiver.balance -= self.amount
+      self.sender.balance += self.amount
     end
   end
 
