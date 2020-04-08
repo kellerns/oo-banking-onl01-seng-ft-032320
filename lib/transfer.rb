@@ -20,6 +20,7 @@ class Transfer
     if self.valid?
       @receiver.balance += @amount
       @sender.balance -+ @amount
+    end
   end
 
   def reverse_transfer
